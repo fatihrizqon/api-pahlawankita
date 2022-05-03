@@ -47,16 +47,17 @@ class QuizController extends Controller
    
     public function save(Request $request)
     { 
+        // dd($request);
         $validator = Validator::make($request->all(),[
             'username'  => ['required','string'],
-            'score'     => ['required','integer'] 
+            'score'     => ['required','string'] 
         ]);
       
         if($validator->fails()) {
             $error = $validator->errors()->first();
             return response()->json([
                 'success'   => false,
-                'message'   => $error 
+                'message'   => $error
             ], 403);
         } 
 
