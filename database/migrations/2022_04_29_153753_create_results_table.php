@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateResultsTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -15,7 +15,7 @@ class CreateResultsTable extends Migration
     {
         Schema::create('results', function (Blueprint $table) {
           $table->id();
-          $table->string('username',100)->unique();
+          $table->string('username')->unique();
           $table->integer('score');
           $table->timestamps();
         });
@@ -30,4 +30,4 @@ class CreateResultsTable extends Migration
     {
         Schema::dropIfExists('results');
     }
-}
+};
