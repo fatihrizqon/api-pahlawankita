@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('results', function (Blueprint $table) {
           $table->id();
-          $table->string('username')->unique();
+          $table->string('username',50)->unique();
           $table->integer('score');
           $table->timestamps();
         });
