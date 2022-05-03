@@ -29,7 +29,7 @@ class QuizController extends Controller
 
     public function results()
     {
-        $results = Result::where('score', '>=', 0)->orderBy('score', 'desc')->take(50)->get();
+        $results = Result::where('score', '>=', 0)->orderBy('score', 'desc')->take(25)->get();
 
         if($results){
           return response()->json([
@@ -46,8 +46,7 @@ class QuizController extends Controller
     }
    
     public function save(Request $request)
-    { 
-        // dd($request);
+    {  
         $validator = Validator::make($request->all(),[
             'username'  => ['required','string'],
             'score'     => ['required','string'] 
